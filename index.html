@@ -4,21 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>खुला पत्र: एशिया की आवाज़ - अमेरिका के नाम</title>
-    <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="एक खुला पत्र: अमेरिका से – एशिया के नागरिकों की ओर से">
     <meta property="og:description" content="ईरान की सभ्यता मिटाने की धमकी पर एशिया का नैतिक प्रश्न। अजय सिंह चौहान, भोपाल की ओर से पूरे एशिया के नागरिकों की आवाज़।">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Asia+for+Humanity">
     <meta property="og:url" content="https://ajaysingh132.github.io/Message-from-the-world-and-Asian-people-to-Mr.-Trump-and-the-American-people-/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="एक खुला पत्र – अमेरिका के नाम">
-    <meta name="twitter:description" content="पूरे एशिया की ओर से: ईरान की सभ्यता के विनाश की धमकी अस्वीकार्य है।">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: linear-gradient(145deg, #f0ebe4 0%, #e0d6cc 100%);
             font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Roboto', sans-serif;
@@ -34,7 +27,6 @@
             box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3);
             overflow: hidden;
         }
-        /* Header with language switcher */
         .lang-bar {
             background: #9b2a2a;
             padding: 1rem 2rem;
@@ -45,10 +37,7 @@
             gap: 15px;
             border-bottom: 2px solid #e7bc7e;
         }
-        .lang-buttons {
-            display: flex;
-            gap: 12px;
-        }
+        .lang-buttons { display: flex; gap: 12px; }
         .lang-btn {
             background: rgba(255,255,240,0.2);
             border: 1px solid #f7e5c2;
@@ -60,16 +49,8 @@
             transition: 0.2s;
             font-size: 0.9rem;
         }
-        .lang-btn.active {
-            background: #e7bc7e;
-            color: #7c2a2a;
-            border-color: #e7bc7e;
-        }
-        .lang-btn:hover {
-            background: #e7bc7e;
-            color: #7c2a2a;
-        }
-        /* Google Translate dropdown - custom style */
+        .lang-btn.active { background: #e7bc7e; color: #7c2a2a; border-color: #e7bc7e; }
+        .lang-btn:hover { background: #e7bc7e; color: #7c2a2a; }
         .translate-dropdown {
             background: white;
             border-radius: 40px;
@@ -79,10 +60,7 @@
             gap: 8px;
             font-size: 0.8rem;
         }
-        .translate-dropdown label {
-            color: #2c241e;
-            font-weight: 500;
-        }
+        .translate-dropdown label { color: #2c241e; font-weight: 500; }
         .goog-te-combo {
             padding: 5px 8px;
             border-radius: 30px;
@@ -91,26 +69,13 @@
             font-family: inherit;
             cursor: pointer;
         }
-        /* hide Google Translate top banner */
-        .skiptranslate iframe, .goog-te-banner-frame {
-            display: none !important;
-        }
-        body {
-            top: 0px !important;
-        }
-        .letter-body {
-            padding: 2rem 2rem 2.5rem;
-        }
-        /* Language content blocks */
-        .lang-content {
-            display: none;
-        }
-        .lang-content.active {
-            display: block;
-        }
-        .recipient, .date-place {
-            margin-bottom: 1.5rem;
-        }
+        /* Hide Google Translate top banner */
+        .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
+        body { top: 0px !important; }
+        .letter-body { padding: 2rem 2rem 2.5rem; }
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        .recipient, .date-place { margin-bottom: 1.5rem; }
         .recipient {
             border-left: 4px solid #dbb45c;
             padding-left: 1.3rem;
@@ -132,17 +97,9 @@
             border-left: 4px solid #dbb45c;
             padding-left: 0.9rem;
         }
-        .content h3 {
-            font-size: 1.25rem;
-            margin: 1.2rem 0 0.4rem;
-            color: #4a3629;
-        }
-        .content p {
-            margin-bottom: 1rem;
-        }
-        .content strong {
-            color: #9b2a2a;
-        }
+        .content h3 { font-size: 1.25rem; margin: 1.2rem 0 0.4rem; color: #4a3629; }
+        .content p { margin-bottom: 1rem; }
+        .content strong { color: #9b2a2a; }
         .challenge-box {
             background: #fdf3e0;
             border-left: 6px solid #c95a0f;
@@ -172,11 +129,7 @@
             border-top: 1px solid #e6dfd7;
             padding-top: 1.5rem;
         }
-        .sign-name {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: #7c2a2a;
-        }
+        .sign-name { font-weight: 700; font-size: 1.2rem; color: #7c2a2a; }
         .share-section {
             background: #fef8f0;
             margin-top: 2rem;
@@ -206,10 +159,7 @@
             border: 1px solid #ddd0c0;
             transition: 0.2s;
         }
-        .share-btn:hover {
-            background: #f0e5d8;
-            transform: translateY(-2px);
-        }
+        .share-btn:hover { background: #f0e5d8; transform: translateY(-2px); }
         .footer-note {
             background: #f6f1ea;
             margin-top: 1.8rem;
@@ -352,8 +302,29 @@
             </div>
         </div>
 
-        <!-- SOCIAL SHARE SECTION (common for both) -->
+        <!-- SOCIAL SHARE SECTION -->
         <div class="share-section">
-            <div style="font-weight:bold;">📢 इस पत्र को सोशल मीडिया पर साझा करें / Share this letter</div>
+            <div style="font-weight:bold;">📢 इस पत्र को साझा करें / Share this letter</div>
             <div class="share-buttons" id="share-buttons"></div>
-            <p style="font-size:0.75rem; margin-top:12px;">🔗 पेज लिंक / Page link: <input type="text" id="pageUrl" readonly style="width:70%; border:1px solid #ccc; border-radius:20px; padd
+            <p style="font-size:0.75rem; margin-top:12px;">🔗 पेज लिंक / Page link: 
+                <input type="text" id="pageUrl" readonly style="width:70%; border:1px solid #ccc; border-radius:20px; padding:6px; background:#fff;">
+            </p>
+            <button id="copyBtn" style="background:#dbb45c; border:none; padding:6px 18px; border-radius:30px; margin-top:6px; cursor:pointer;">📋 कॉपी करें / Copy</button>
+        </div>
+
+        <div class="footer-note">
+            🌐 यह पत्र खुले मन से प्रकाशित किया गया है। इसे बिना किसी प्रतिबंध के साझा, अनुवादित और पुनर्प्रकाशित किया जा सकता है।<br>
+            #AsiaToAmerica #SaveIranianCivilization #HumanityOverEmpire
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // Language switcher
+    const btnEn = document.getElementById('btn-en');
+    const btnHi = document.getElementById('btn-hi');
+    const contentEn = document.getElementById('content-en');
+    const contentHi = document.getElementById('content-hi');
+
+    function setLanguage(lang) {
+        if (lang === 'en')
