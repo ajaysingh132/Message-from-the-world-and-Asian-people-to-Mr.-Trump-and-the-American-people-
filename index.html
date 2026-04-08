@@ -1,512 +1,359 @@
-हं<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>An Open Letter from Asia | 给世界的公开信 | अजय सिंह चौहान</title>
+    <title>खुला पत्र: एशिया की आवाज़ - अमेरिका के नाम</title>
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="एक खुला पत्र: अमेरिका से – एशिया के नागरिकों की ओर से">
+    <meta property="og:description" content="ईरान की सभ्यता मिटाने की धमकी पर एशिया का नैतिक प्रश्न। अजय सिंह चौहान, भोपाल की ओर से पूरे एशिया के नागरिकों की आवाज़।">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Asia+for+Humanity">
+    <meta property="og:url" content="https://ajaysingh132.github.io/Message-from-the-world-and-Asian-people-to-Mr.-Trump-and-the-American-people-/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="एक खुला पत्र – अमेरिका के नाम">
+    <meta name="twitter:description" content="पूरे एशिया की ओर से: ईरान की सभ्यता के विनाश की धमकी अस्वीकार्य है।">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            background: linear-gradient(145deg, #f7f3ee 0%, #e8e0d8 100%);
-            font-family: 'Inter', 'Segoe UI', 'Roboto', 'Georgia', serif;
-            line-height: 1.5;
-            color: #1e1a17;
+            background: linear-gradient(145deg, #f0ebe4 0%, #e0d6cc 100%);
+            font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #2c241e;
             padding: 2rem 1rem;
         }
-
-        .letter {
+        .letter-container {
             max-width: 980px;
             margin: 0 auto;
             background: #fffef7;
             border-radius: 32px;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3);
             overflow: hidden;
         }
-
-        .letter-header {
+        /* Header with language switcher */
+        .lang-bar {
             background: #9b2a2a;
-            background-image: radial-gradient(circle at 10% 30%, rgba(255,215,150,0.1) 2%, transparent 2.5%);
-            background-size: 28px 28px;
-            padding: 2.2rem 2rem;
-            text-align: center;
-            border-bottom: 6px solid #e7bc7e;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid #e7bc7e;
         }
-
-        .letter-header h1 {
-            font-size: 1.9rem;
-            letter-spacing: -0.3px;
-            font-weight: 600;
+        .lang-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        .lang-btn {
+            background: rgba(255,255,240,0.2);
+            border: 1px solid #f7e5c2;
             color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 0.5rem;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.9rem;
         }
-
-        .letter-header .sub {
-            color: #f7e5c2;
-            font-size: 1rem;
-            font-weight: 400;
-            border-top: 1px solid rgba(255,255,200,0.3);
-            display: inline-block;
-            padding-top: 0.6rem;
-            margin-top: 0.4rem;
+        .lang-btn.active {
+            background: #e7bc7e;
+            color: #7c2a2a;
+            border-color: #e7bc7e;
         }
-
+        .lang-btn:hover {
+            background: #e7bc7e;
+            color: #7c2a2a;
+        }
+        /* Google Translate dropdown - custom style */
+        .translate-dropdown {
+            background: white;
+            border-radius: 40px;
+            padding: 4px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+        }
+        .translate-dropdown label {
+            color: #2c241e;
+            font-weight: 500;
+        }
+        .goog-te-combo {
+            padding: 5px 8px;
+            border-radius: 30px;
+            border: none;
+            background: #f8f4ee;
+            font-family: inherit;
+            cursor: pointer;
+        }
+        /* hide Google Translate top banner */
+        .skiptranslate iframe, .goog-te-banner-frame {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
+        }
         .letter-body {
-            padding: 2.5rem 2rem 2.8rem;
+            padding: 2rem 2rem 2.5rem;
         }
-
+        /* Language content blocks */
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
+        .recipient, .date-place {
+            margin-bottom: 1.5rem;
+        }
         .recipient {
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
             border-left: 4px solid #dbb45c;
             padding-left: 1.3rem;
             background: #fdfaf5;
-            border-radius: 0 20px 20px 0;
-            color: #2c241e;
+            border-radius: 0 16px 16px 0;
+            font-size: 0.95rem;
         }
-
-        .recipient p {
-            margin: 0.25rem 0;
-        }
-
         .date-place {
             text-align: right;
-            margin-bottom: 1.8rem;
             font-size: 0.9rem;
             color: #5c4b3a;
             border-bottom: 1px dashed #e2d9cf;
-            padding-bottom: 0.75rem;
+            padding-bottom: 0.7rem;
         }
-
-        .content {
-            font-size: 1.05rem;
-            font-weight: 400;
-        }
-
         .content h2 {
             font-size: 1.5rem;
-            margin: 1.6rem 0 0.8rem 0;
+            margin: 1.6rem 0 0.8rem;
             color: #7c2a2a;
-            font-weight: 500;
             border-left: 4px solid #dbb45c;
             padding-left: 0.9rem;
         }
-
         .content h3 {
             font-size: 1.25rem;
-            margin: 1.3rem 0 0.4rem;
-            font-weight: 500;
+            margin: 1.2rem 0 0.4rem;
             color: #4a3629;
         }
-
         .content p {
-            margin-bottom: 1.1rem;
-            line-height: 1.65;
+            margin-bottom: 1rem;
         }
-
         .content strong {
             color: #9b2a2a;
-            font-weight: 600;
         }
-
         .challenge-box {
             background: #fdf3e0;
             border-left: 6px solid #c95a0f;
-            padding: 1.3rem 1.8rem;
+            padding: 1.2rem 1.8rem;
             margin: 2rem 0 1.5rem;
             border-radius: 20px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
         }
-
         .pledge-quote {
-            font-style: normal;
             background: #f1ede8;
-            padding: 1.5rem 2rem;
+            padding: 1.3rem 2rem;
             border-radius: 32px;
-            margin: 2rem 0 1.8rem;
-            font-weight: 450;
-            color: #2f241e;
+            margin: 1.8rem 0;
             border: 1px solid #e7dbcf;
         }
-
-        .signature {
-            margin-top: 2.5rem;
-            text-align: right;
-            border-top: 1px solid #e6dfd7;
-            padding-top: 1.8rem;
-            font-size: 1rem;
-        }
-
-        .signature .sign-name {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: #7c2a2a;
-        }
-
-        .signature span {
-            font-size: 0.9rem;
-            color: #5c4b3a;
-            display: block;
-        }
-
         .country-list {
             background: #f9f6f0;
             padding: 1rem 1.5rem;
             border-radius: 24px;
             margin: 1.8rem 0 1rem;
             font-size: 0.85rem;
-            color: #3b2f27;
             line-height: 1.5;
             border: 1px solid #e8dfd5;
         }
-
-        .country-list strong {
-            color: #9b2a2a;
+        .signature {
+            margin-top: 2.2rem;
+            text-align: right;
+            border-top: 1px solid #e6dfd7;
+            padding-top: 1.5rem;
         }
-
+        .sign-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #7c2a2a;
+        }
+        .share-section {
+            background: #fef8f0;
+            margin-top: 2rem;
+            padding: 1.2rem;
+            border-radius: 28px;
+            text-align: center;
+            border: 1px solid #eeddbb;
+        }
+        .share-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 18px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #2c241e;
+            border: 1px solid #ddd0c0;
+            transition: 0.2s;
+        }
+        .share-btn:hover {
+            background: #f0e5d8;
+            transform: translateY(-2px);
+        }
         .footer-note {
             background: #f6f1ea;
-            margin-top: 2rem;
-            padding: 1.2rem 1.5rem;
-            border-radius: 28px;
-            font-size: 0.85rem;
+            margin-top: 1.8rem;
+            padding: 1rem;
+            border-radius: 24px;
+            font-size: 0.8rem;
             text-align: center;
             color: #3b2f27;
-            border: 1px solid #e3d8ce;
         }
-
-        .footer-note a {
-            color: #9b2a2a;
-            text-decoration: none;
-            border-bottom: 1px dotted;
-        }
-
         @media (max-width: 640px) {
-            .letter-body {
-                padding: 1.6rem;
-            }
-            .letter-header h1 {
-                font-size: 1.4rem;
-            }
-            .content {
-                font-size: 0.98rem;
-            }
-            .challenge-box {
-                padding: 1rem 1.2rem;
-            }
+            .letter-body { padding: 1.5rem; }
+            .lang-bar { flex-direction: column; align-items: stretch; text-align: center; }
+            .lang-buttons { justify-content: center; }
+            .translate-dropdown { justify-content: center; }
         }
     </style>
 </head>
 <body>
-<div class="letter">
-    <div class="letter-header">
-        <h1>✧ AN OPEN LETTER ✧<br> to the US Administration & the People of the World</h1>
-        <div class="sub">From the citizens of Asia — rooted in thousands of years of kinship and conscience</div>
+
+<div class="letter-container">
+    <div class="lang-bar">
+        <div class="lang-buttons">
+            <button class="lang-btn" id="btn-en">🇬🇧 English</button>
+            <button class="lang-btn active" id="btn-hi">🇮🇳 हिंदी</button>
+        </div>
+        <div class="translate-dropdown">
+            <label>🌐 अन्य भाषा / Other language:</label>
+            <div id="google_translate_element"></div>
+        </div>
     </div>
+
     <div class="letter-body">
-        <div class="recipient">
-            <p><strong>To:</strong> President Donald Trump, United States Congress, United Nations, and all global citizens</p>
-        </div>
-        <div class="date-place">
-            <p><strong>Date:</strong> 09 April 2026 &nbsp;|&nbsp; <strong>Sent from:</strong> Bhopal, Madhya Pradesh, India — on behalf of the Asian family</p>
-        </div>
-        <div class="content">
-            <p><strong>Subject: Asia’s moral question on the threat to erase Iranian civilization</strong></p>
-            <p>Dear US Administration,</p>
-            <p>We, the people of the Asian continent — whose history has been woven for millennia with threads of <strong>familialism, coexistence, and reverence for life</strong> — place before you several clear and urgent questions. We are not a government, nor an army. We are the children of cultures that have never, in thousands of years, threatened to erase another nation’s civilization.</p>
-
-            <h2>1. “Erasing a civilization” — is this humanity’s definition?</h2>
-            <p>You said that <strong>“an entire civilization will die.”</strong> This is not merely a threat of war; it is a declaration of <strong>cultural genocide</strong>. We ask you — has Iran’s 2,500-year-old Persian civilization, its poetry of Rumi, its science of Avicenna, its art and philosophy, ever harmed you? If not, then why this obliteration?</p>
-
-            <h2>2. The silence of the American people — does it mean consent?</h2>
-            <p>We see that many in your country remain silent. Is that silence born of agreement? Or of fear? We remind you: <strong>when no voice is raised against injustice, that silence becomes a partner to injustice.</strong> Your economy is strong, but poverty of character is a danger to the whole world.</p>
-
-            <h2>3. India’s challenge — humanity despite poverty</h2>
-            <p>We are citizens of India. We do not possess your wealth, your bombs, or your military reach. But we possess <strong>compassion</strong>. When you threatened to attack Iran, our Parliament refused to run the budget session as usual. Why? Because for us, <strong>justice comes before bread and water</strong>. We considered it immoral to conduct normal business without first expressing condolences at the Iranian embassy. This is not our weakness; this is our strength.</p>
-
-            <h2>4. Asia’s familial character</h2>
-            <p>In Asia, we live in extended families. When one family member is oppressed, the rest do not sit silently. Iran is our neighbor; its civilization lives in the stories our grandmothers tell. You speak of ‘erasing a civilization’ like Hitler — but we tell you, <strong>even Hitler failed</strong>. Cultures do not die by bombs; they perish only when people become silent.</p>
-
-            <div class="challenge-box">
-                <h3 style="margin-top: 0; color:#b4510c;">🧾 Our Challenge</h3>
-                <p>We formally challenge you:</p>
-                <ol style="margin-left: 1.5rem; margin-bottom: 0;">
-                    <li>If you have courage, go to the <strong>International Criminal Court (ICC)</strong> and prove that “erasing Iranian civilization” is legal under any international law.</li>
-                    <li>If you have morality, <strong>publicly apologize</strong> to the Iranian people.</li>
-                    <li>If you have humanity, <strong>make the ceasefire permanent immediately</strong> and end all economic and military pressure against Iran.</li>
-                </ol>
+        <!-- ENGLISH CONTENT -->
+        <div id="content-en" class="lang-content">
+            <div class="recipient">
+                <p><strong>To:</strong> President Donald Trump, United States Congress, United Nations, and all global citizens</p>
             </div>
-
-            <div class="pledge-quote">
-                ✊ <strong>Our Pledge</strong><br>
-                “We are not afraid of your bombs. We are saddened by the decay of your character. You cannot erase America’s recognition — but you have already lost your humanity. And without that humanity, civilization has no meaning.”
+            <div class="date-place">
+                <p><strong>Date:</strong> 09 April 2026 &nbsp;|&nbsp; <strong>Sent from:</strong> Bhopal, Madhya Pradesh, India — on behalf of the Asian family</p>
             </div>
-
-            <p>You may call us poor, you may call us weak, you may call us underdeveloped. But we say: <strong>We are more human than you.</strong> History is always written not for those with more weapons, but for those with more compassion.</p>
-
-            <!-- 代表的国家列表 -->
-            <div class="country-list">
-                <strong>🌏 This letter is issued on behalf of the citizens of the following Asian nations & regions:</strong><br><br>
-                <strong>South Asia:</strong> India, Pakistan, Bangladesh, Sri Lanka, Nepal, Bhutan, Maldives, Afghanistan.<br>
-                <strong>East Asia:</strong> China, Japan, South Korea, North Korea, Mongolia, Taiwan (recognized as per respective positions).<br>
-                <strong>Southeast Asia:</strong> Indonesia, Malaysia, Philippines, Singapore, Thailand, Vietnam, Myanmar, Cambodia, Laos, Brunei, Timor-Leste.<br>
-                <strong>West Asia (Middle East):</strong> Saudi Arabia, Iran, Iraq, Turkey, United Arab Emirates (UAE), Qatar, Kuwait, Bahrain, Oman, Yemen, Israel, Jordan, Lebanon, Syria, Cyprus.<br>
-                <strong>Central Asia:</strong> Kazakhstan, Uzbekistan, Tajikistan, Kyrgyzstan, Turkmenistan.<br>
-                <strong>North Asia:</strong> Russia (Asian part).<br>
-                <em>We speak as one Asian family, united by conscience, not by governments.</em>
-            </div>
-
-            <div class="signature">
-                <div class="sign-name">Ajay Singh Chouhan</div>
-                <div>प्रेषक / Sender</div>
-                <div>Bhopal, Madhya Pradesh, India</div>
-                <div>📧 banjarajanmat@gmail.com</div>
-                <span>On behalf of millions of Asian citizens who believe in humanity above empire.</span>
-                <span>Victory to Humanity. Victory to the Asian Family.</span>
+            <div class="content">
+                <p><strong>Subject: Asia’s moral question on the threat to erase Iranian civilization</strong></p>
+                <p>Dear US Administration,</p>
+                <p>We, the people of the Asian continent — whose history has been woven for millennia with threads of <strong>familialism, coexistence, and reverence for life</strong> — place before you several clear and urgent questions. We are not a government, nor an army. We are the children of cultures that have never, in thousands of years, threatened to erase another nation’s civilization.</p>
+                <h2>1. “Erasing a civilization” — is this humanity’s definition?</h2>
+                <p>You said that <strong>“an entire civilization will die.”</strong> This is not merely a threat of war; it is a declaration of <strong>cultural genocide</strong>. We ask you — has Iran’s 2,500-year-old Persian civilization, its poetry of Rumi, its science of Avicenna, its art and philosophy, ever harmed you? If not, then why this obliteration?</p>
+                <h2>2. The silence of the American people — does it mean consent?</h2>
+                <p>We see that many in your country remain silent. Is that silence born of agreement? Or of fear? We remind you: <strong>when no voice is raised against injustice, that silence becomes a partner to injustice.</strong> Your economy is strong, but poverty of character is a danger to the whole world.</p>
+                <h2>3. India’s challenge — humanity despite poverty</h2>
+                <p>We are citizens of India. We do not possess your wealth, your bombs, or your military reach. But we possess <strong>compassion</strong>. When you threatened to attack Iran, our Parliament refused to run the budget session as usual. Why? Because for us, <strong>justice comes before bread and water</strong>. We considered it immoral to conduct normal business without first expressing condolences at the Iranian embassy. This is not our weakness; this is our strength.</p>
+                <h2>4. Asia’s familial character</h2>
+                <p>In Asia, we live in extended families. When one family member is oppressed, the rest do not sit silently. Iran is our neighbor; its civilization lives in the stories our grandmothers tell. You speak of ‘erasing a civilization’ like Hitler — but we tell you, <strong>even Hitler failed</strong>. Cultures do not die by bombs; they perish only when people become silent.</p>
+                <div class="challenge-box">
+                    <h3 style="margin-top:0; color:#b4510c;">🧾 Our Challenge</h3>
+                    <p>We formally challenge you:</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>If you have courage, go to the <strong>International Criminal Court (ICC)</strong> and prove that “erasing Iranian civilization” is legal under any international law.</li>
+                        <li>If you have morality, <strong>publicly apologize</strong> to the Iranian people.</li>
+                        <li>If you have humanity, <strong>make the ceasefire permanent immediately</strong> and end all economic and military pressure against Iran.</li>
+                    </ul>
+                </div>
+                <div class="pledge-quote">
+                    ✊ <strong>Our Pledge</strong><br>
+                    “We are not afraid of your bombs. We are saddened by the decay of your character. You cannot erase America’s recognition — but you have already lost your humanity. And without that humanity, civilization has no meaning.”
+                </div>
+                <p>You may call us poor, you may call us weak, you may call us underdeveloped. But we say: <strong>We are more human than you.</strong> History is always written not for those with more weapons, but for those with more compassion.</p>
+                <div class="country-list">
+                    <strong>🌏 This letter is issued on behalf of the citizens of the following Asian nations & regions:</strong><br><br>
+                    <strong>South Asia:</strong> India, Pakistan, Bangladesh, Sri Lanka, Nepal, Bhutan, Maldives, Afghanistan.<br>
+                    <strong>East Asia:</strong> China, Japan, South Korea, North Korea, Mongolia, Taiwan (recognized as per respective positions).<br>
+                    <strong>Southeast Asia:</strong> Indonesia, Malaysia, Philippines, Singapore, Thailand, Vietnam, Myanmar, Cambodia, Laos, Brunei, Timor-Leste.<br>
+                    <strong>West Asia (Middle East):</strong> Saudi Arabia, Iran, Iraq, Turkey, United Arab Emirates (UAE), Qatar, Kuwait, Bahrain, Oman, Yemen, Israel, Jordan, Lebanon, Syria, Cyprus.<br>
+                    <strong>Central Asia:</strong> Kazakhstan, Uzbekistan, Tajikistan, Kyrgyzstan, Turkmenistan.<br>
+                    <strong>North Asia:</strong> Russia (Asian part).<br>
+                    <em>We speak as one Asian family, united by conscience, not by governments.</em>
+                </div>
+                <div class="signature">
+                    <div class="sign-name">Ajay Singh Chouhan</div>
+                    <div>प्रेषक / Sender</div>
+                    <div>Bhopal, Madhya Pradesh, India</div>
+                    <div>📧 banjarajanmat@gmail.com</div>
+                    <div style="font-size:0.9rem; margin-top:6px;">On behalf of millions of Asian citizens who believe in humanity above empire.</div>
+                    <div style="font-weight:500; margin-top:10px;">Victory to Humanity. Victory to the Asian Family.</div>
+                </div>
             </div>
         </div>
 
-        <div class="footer-note">
-            🌐 <strong>Join the voice</strong> — Share this open letter with #AsiaToAmerica #SaveIranianCivilization #HumanityOverEmpire<br>
-            📩 This letter is published in the spirit of public conscience. It may be freely shared, translated, and republished.
-        </div>
-    </div>
-</div>
-</body>
-  </html>
-
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>एक खुला पत्र – अमेरिकी राष्ट्रपति ट्रंप के नाम | एशिया की ओर से ईरान सभ्यता बचाओ</title>
-    
-    <!-- === SEO Meta Tags === -->
-    <meta name="description" content="एशिया के नागरिकों की ओर से अमेरिकी राष्ट्रपति ट्रंप को खुला पत्र: ईरान की सभ्यता मिटाने की धमकी पर नैतिक प्रश्न। हस्ताक्षरकर्ता: अजय सिंह चौहान, भोपाल।">
-    <meta name="keywords" content="Trump, Iran, civilization, open letter, Asia, India, Iran war, genocide threat, humanity, SaveIran, AsiaToAmerica, ट्रंप, ईरान, खुला पत्र, एशिया, मानवता">
-    <meta name="author" content="अजय सिंह चौहान (Ajay Singh Chouhan)">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="Hindi">
-    <meta name="revisit-after" content="7 days">
-    <meta name="distribution" content="global">
-    
-    <!-- === Open Graph / Social Media (Facebook, LinkedIn, WhatsApp) === -->
-    <meta property="og:title" content="एक खुला पत्र: अमेरिकी राष्ट्रपति ट्रंप के नाम – एशिया की आवाज़">
-    <meta property="og:description" content="ईरान की सभ्यता मिटाने की धमकी पर एशिया के नागरिकों का नैतिक प्रश्न। पढ़ें और साझा करें। #SaveIranianCivilization">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="" id="og_url">
-    <meta property="og:image" content="https://raw.githubusercontent.com/yourusername/yourrepo/main/asia-for-humanity.jpg"> <!-- आप कोई स्थायी चित्र URL डालें -->
-    <meta property="og:image:alt" content="एशिया एकता – ईरान सभ्यता बचाओ">
-    <meta property="og:locale" content="hi_IN">
-    <meta property="og:site_name" content="एशियाई नागरिकों की आवाज़">
-    
-    <!-- === Twitter Card === -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="खुला पत्र: ट्रंप को एशिया का संदेश">
-    <meta name="twitter:description" content="एक पूरी सभ्यता को मिटाने की धमकी – क्या यह मानवता है? एशिया के 40+ देशों के नागरिक बोल रहे हैं।">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/yourusername/yourrepo/main/asia-for-humanity.jpg">
-    <meta name="twitter:site" content="@AsiaVoice">
-    
-    <!-- === Canonical URL (खुद का लिंक) === -->
-    <link rel="canonical" href="" id="canonical_url">
-    
-    <!-- === Hreflang (वैकल्पिक भाषाएँ – यदि अंग्रेज़ी संस्करण हो) === -->
-    <link rel="alternate" hreflang="en" href="https://yourusername.github.io/letter-en.html">
-    <link rel="alternate" hreflang="hi" href="https://yourusername.github.io/">
-    
-    <style>
-        /* (वही CSS जो पिछले हिंदी संस्करण में था – यहाँ स्थान बचाने के लिए नहीं दोहराया, पर आप पूरा कॉपी करें) */
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { background: linear-gradient(145deg,#f0ebe4 0%,#e0d6cc 100%); font-family: 'Noto Sans Devanagari','Segoe UI',sans-serif; line-height:1.6; color:#2c241e; padding:2rem 1rem; }
-        .letter { max-width:980px; margin:0 auto; background:#fffef7; border-radius:32px; box-shadow:0 25px 45px -12px rgba(0,0,0,0.3); overflow:hidden; }
-        .letter-header { background:#9b2a2a; padding:2rem; text-align:center; border-bottom:6px solid #e7bc7e; }
-        .letter-header h1 { font-size:1.8rem; font-weight:700; color:white; margin-bottom:0.5rem; }
-        .letter-header .sub { color:#f7e5c2; font-size:1rem; border-top:1px solid rgba(255,255,200,0.3); display:inline-block; padding-top:0.6rem; }
-        .letter-body { padding:2rem 2rem 2.5rem; }
-        .recipient { margin-bottom:1.8rem; border-left:4px solid #dbb45c; padding-left:1.3rem; background:#fdfaf5; border-radius:0 16px 16px 0; }
-        .date-place { text-align:right; margin-bottom:1.8rem; font-size:0.9rem; color:#5c4b3a; border-bottom:1px dashed #e2d9cf; padding-bottom:0.7rem; }
-        .content h2 { font-size:1.5rem; margin:1.6rem 0 0.8rem; color:#7c2a2a; border-left:4px solid #dbb45c; padding-left:0.9rem; }
-        .content p { margin-bottom:1rem; }
-        .content strong { color:#9b2a2a; }
-        .challenge-box { background:#fdf3e0; border-left:6px solid #c95a0f; padding:1.2rem 1.8rem; margin:2rem 0 1.5rem; border-radius:20px; }
-        .pledge-quote { background:#f1ede8; padding:1.3rem 2rem; border-radius:32px; margin:1.8rem 0; border:1px solid #e7dbcf; }
-        .country-list { background:#f9f6f0; padding:1rem 1.5rem; border-radius:24px; margin:1.8rem 0 1rem; font-size:0.85rem; border:1px solid #e8dfd5; }
-        .signature { margin-top:2.2rem; text-align:right; border-top:1px solid #e6dfd7; padding-top:1.5rem; }
-        .sign-name { font-weight:700; font-size:1.2rem; color:#7c2a2a; }
-        .share-section { background:#fef8f0; margin-top:2rem; padding:1.2rem; border-radius:28px; text-align:center; border:1px solid #eeddbb; }
-        .share-buttons { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:12px; }
-        .share-btn { display:inline-flex; align-items:center; gap:8px; background:white; padding:8px 18px; border-radius:40px; text-decoration:none; font-weight:500; font-size:0.9rem; color:#2c241e; border:1px solid #ddd0c0; transition:0.2s; }
-        .share-btn:hover { background:#f0e5d8; transform:translateY(-2px); }
-        .footer-note { background:#f6f1ea; margin-top:1.8rem; padding:1rem; border-radius:24px; font-size:0.8rem; text-align:center; }
-        @media (max-width:640px) { .letter-body { padding:1.5rem; } .letter-header h1 { font-size:1.4rem; } }
-    </style>
-</head>
-<body>
-<div class="letter">
-    <div class="letter-header">
-        <h1>✧ एक खुला पत्र ✧<br>अमेरिकी प्रशासन और विश्व जनता के नाम</h1>
-        <div class="sub">एशिया महाद्वीप के नागरिकों की ओर से – हज़ारों वर्षों के परिवारवाद और करुणा की आवाज़</div>
-    </div>
-    <div class="letter-body">
-        <div class="recipient">
-            <p><strong>प्रति:</strong> राष्ट्रपति डोनाल्ड ट्रंप, अमेरिकी कांग्रेस, संयुक्त राष्ट्र, और विश्व के सभी नागरिक</p>
-        </div>
-        <div class="date-place">
-            <p><strong>दिनांक:</strong> 09 अप्रैल 2026 &nbsp;|&nbsp; <strong>प्रेषण स्थल:</strong> भोपाल, मध्य प्रदेश, भारत — पूरे एशियाई परिवार की ओर से</p>
-        </div>
-        <div class="content">
-            <p><strong>विषय:</strong> ईरान की सभ्यता मिटाने की धमकी पर एशिया का नैतिक प्रश्न</p>
-            <p>प्रिय अमेरिकी प्रशासन,</p>
-            <p>हम एशिया महाद्वीप के नागरिक — जिनका इतिहास हज़ारों वर्षों से <strong>परिवारवाद, सह-अस्तित्व और जीवन के प्रति श्रद्धा</strong> पर टिका है — आपके समक्ष कुछ स्पष्ट और गंभीर प्रश्न रखते हैं। हम कोई सरकार नहीं हैं, कोई सेना नहीं। हम वे लोग हैं जिन्होंने अपने पूरे इतिहास में कभी किसी दूसरे देश की सभ्यता मिटाने की धमकी नहीं दी।</p>
-
-            <h2>१. “सभ्यता मिटा देना” — क्या यह मानवता की कोई परिभाषा है?</h2>
-            <p>आपने कहा कि <strong>“एक पूरी सभ्यता मर जाएगी।”</strong> यह केवल युद्ध की धमकी नहीं है, यह <strong>सांस्कृतिक नरसंहार</strong> की घोषणा है। हम पूछते हैं — क्या ईरान की २,५०० वर्ष पुरानी फ़ारसी सभ्यता, उसकी कविता, उसका विज्ञान, उसकी कला और दर्शन ने आपको कभी हानि पहुँचाई है? यदि नहीं, तो यह विनाश क्यों?</p>
-
-            <h2>२. अमेरिकी जनता की चुप्पी — क्या यह सहमति है?</h2>
-            <p>हम देख रहे हैं कि आपके देश की जनता मौन है। क्या यह मौन इसलिए है क्योंकि वे इस धमकी से सहमत हैं? या वे डरी हुई हैं? हम याद दिलाते हैं: <strong>जब अन्याय के खिलाफ आवाज नहीं उठती, तो वह मौन अन्याय का साथी बन जाता है।</strong> आपकी अर्थव्यवस्था मजबूत है, लेकिन चरित्र की दरिद्रता दुनिया के लिए खतरा है।</p>
-
-            <h2>३. भारत की चुनौती: गरीबी के बावजूद मानवता</h2>
-            <p>हम भारत के नागरिक हैं। हमारे पास न तो आपका धन है, न बम, न सैन्य शक्ति। लेकिन हमारे पास <strong>करुणा</strong> है। जब आपने ईरान पर हमले की धमकी दी, तो हमारी संसद ने बजट सत्र तक नहीं चलने दिया। क्यों? क्योंकि हमारे लिए <strong>रोटी और पानी से पहले इंसाफ</strong> आता है। हमने ईरानी दूतावास जाकर संवेदना प्रकट किए बिना सामान्य कामकाज करना अनैतिक समझा। यह हमारी कमज़ोरी नहीं, हमारी ताकत है।</p>
-
-            <h2>४. एशिया का पारिवारिक चरित्र</h2>
-            <p>एशिया में हम परिवारों में रहते हैं। परिवार में एक सदस्य पर अत्याचार हो, तो बाकी चुप नहीं बैठते। ईरान हमारा पड़ोसी है, उसकी सभ्यता हमारी दादी-नानी की कहानियों में बसती है। आप हिटलर की तरह ‘सभ्यता मिटाने’ की बात करते हैं — लेकिन हम कहते हैं, <strong>हिटलर भी असफल रहा।</strong> संस्कृतियाँ बमों से नहीं मरतीं; वे तो तब मरती हैं जब लोग चुप हो जाते हैं।</p>
-
-            <div class="challenge-box">
-                <h3 style="margin-top:0; color:#b4510c;">🧾 हमारी चुनौती</h3>
-                <p>हम औपचारिक रूप से आपको चुनौती देते हैं:</p>
-                <ol style="margin-left:1.5rem;">
-                    <li>यदि साहस है, तो <strong>अंतरराष्ट्रीय न्यायालय (ICC)</strong> में जाकर सिद्ध करें कि “ईरान की सभ्यता मिटाना” किसी अंतरराष्ट्रीय कानून के अंतर्गत वैध है।</li>
-                    <li>यदि नैतिकता है, तो <strong>ईरानी नागरिकों से सार्वजनिक रूप से माफी</strong> माँगें।</li>
-                    <li>यदि मानवता है, तो <strong>युद्धविराम को तुरंत स्थायी बनाएँ</strong> और ईरान के खिलाफ सभी आर्थिक व सैन्य दबाव समाप्त करें।</li>
-                </ol>
+        <!-- HINDI CONTENT -->
+        <div id="content-hi" class="lang-content active">
+            <div class="recipient">
+                <p><strong>प्रति:</strong> राष्ट्रपति डोनाल्ड ट्रंप, अमेरिकी कांग्रेस, संयुक्त राष्ट्र, और विश्व के सभी नागरिक</p>
             </div>
-
-            <div class="pledge-quote">
-                ✊ <strong>हमारी प्रतिज्ञा</strong><br>
-                “हम आपके बमों से नहीं डरते। हम आपके चरित्र के पतन से दुखी हैं। आप अमेरिका की मान्यता नहीं मिटा सकते — लेकिन आप अपनी मानवता खो चुके हैं। और उस मानवता के बिना, सभ्यता का कोई अर्थ नहीं है।”
+            <div class="date-place">
+                <p><strong>दिनांक:</strong> 09 अप्रैल 2026 &nbsp;|&nbsp; <strong>प्रेषण स्थल:</strong> भोपाल, मध्य प्रदेश, भारत — पूरे एशियाई परिवार की ओर से</p>
             </div>
-
-            <p>आप हमें गरीब कहें, कमज़ोर कहें, अविकसित कहें। लेकिन हम कहते हैं: <strong>हम आपसे अधिक मानव हैं।</strong> इतिहास हमेशा उसी पक्ष को लिखता है जिसके पास अधिक हथियार नहीं, बल्कि अधिक करुणा होती है।</p>
-
-            <div class="country-list">
-                <strong>🌏 यह पत्र निम्नलिखित एशियाई देशों/क्षेत्रों के नागरिकों की ओर से जारी किया गया है:</strong><br><br>
-                <strong>दक्षिण एशिया:</strong> भारत, पाकिस्तान, बांग्लादेश, श्रीलंका, नेपाल, भूटान, मालदीव, अफगानिस्तान।<br>
-                <strong>पूर्व एशिया:</strong> चीन, जापान, दक्षिण कोरिया, उत्तर कोरिया, मंगोलिया, ताइवान (मान्यता के अनुसार)।<br>
-                <strong>दक्षिण-पूर्व एशिया:</strong> इंडोनेशिया, मलेशिया, फिलीपींस, सिंगापुर, थाईलैंड, वियतनाम, म्यांमार, कंबोडिया, लाओस, ब्रुनेई, तिमोर-लेस्ते।<br>
-                <strong>पश्चिम एशिया (मध्य पूर्व):</strong> सऊदी अरब, ईरान, इराक, तुर्की, यूएई, कतर, कुवैत, बहरीन, ओमान, यमन, इज़राइल, जॉर्डन, लेबनान, सीरिया, साइप्रस।<br>
-                <strong>मध्य एशिया:</strong> कजाकिस्तान, उज़्बेकिस्तान, ताजिकिस्तान, किर्गिस्तान, तुर्कमेनिस्तान।<br>
-                <strong>उत्तर एशिया:</strong> रूस (एशियाई भाग)।<br>
-                <em>हम एक एशियाई परिवार के रूप में बोलते हैं, जो सरकारों से नहीं, बल्कि अंतःकरण से एकजुट हैं।</em>
-            </div>
-
-            <div class="signature">
-                <div class="sign-name">अजय सिंह चौहान (Ajay Singh Chouhan)</div>
-                <div>प्रेषक / Sender</div>
-                <div>भोपाल, मध्य प्रदेश, भारत</div>
-                <div>📧 banjarajanmat@gmail.com</div>
-                <div style="font-size:0.9rem; margin-top:6px;">एशिया के करोड़ों नागरिकों की ओर से जो साम्राज्य से ऊपर मानवता में विश्वास करते हैं।</div>
-                <div style="font-weight:500; margin-top:10px;">जय मानवता। जय एशियाई परिवार।</div>
+            <div class="content">
+                <p><strong>विषय:</strong> ईरान की सभ्यता मिटाने की धमकी पर एशिया का नैतिक प्रश्न</p>
+                <p>प्रिय अमेरिकी प्रशासन,</p>
+                <p>हम एशिया महाद्वीप के नागरिक — जिनका इतिहास हज़ारों वर्षों से <strong>परिवारवाद, सह-अस्तित्व और जीवन के प्रति श्रद्धा</strong> पर टिका है — आपके समक्ष कुछ स्पष्ट और गंभीर प्रश्न रखते हैं। हम कोई सरकार नहीं हैं, कोई सेना नहीं। हम वे लोग हैं जिन्होंने अपने पूरे इतिहास में कभी किसी दूसरे देश की सभ्यता मिटाने की धमकी नहीं दी।</p>
+                <h2>१. “सभ्यता मिटा देना” — क्या यह मानवता की कोई परिभाषा है?</h2>
+                <p>आपने कहा कि <strong>“एक पूरी सभ्यता मर जाएगी।”</strong> यह केवल युद्ध की धमकी नहीं है, यह <strong>सांस्कृतिक नरसंहार</strong> की घोषणा है। हम पूछते हैं — क्या ईरान की २,५०० वर्ष पुरानी फ़ारसी सभ्यता, उसकी कविता, उसका विज्ञान, उसकी कला और दर्शन ने आपको कभी हानि पहुँचाई है? यदि नहीं, तो यह विनाश क्यों?</p>
+                <h2>२. अमेरिकी जनता की चुप्पी — क्या यह सहमति है?</h2>
+                <p>हम देख रहे हैं कि आपके देश की जनता मौन है। क्या यह मौन इसलिए है क्योंकि वे इस धमकी से सहमत हैं? या वे डरी हुई हैं? हम याद दिलाते हैं: <strong>जब अन्याय के खिलाफ आवाज नहीं उठती, तो वह मौन अन्याय का साथी बन जाता है।</strong> आपकी अर्थव्यवस्था मजबूत है, लेकिन चरित्र की दरिद्रता दुनिया के लिए खतरा है।</p>
+                <h2>३. भारत की चुनौती: गरीबी के बावजूद मानवता</h2>
+                <p>हम भारत के नागरिक हैं। हमारे पास न तो आपका धन है, न बम, न सैन्य शक्ति। लेकिन हमारे पास <strong>करुणा</strong> है। जब आपने ईरान पर हमले की धमकी दी, तो हमारी संसद ने बजट सत्र तक नहीं चलने दिया। क्यों? क्योंकि हमारे लिए <strong>रोटी और पानी से पहले इंसाफ</strong> आता है। हमने ईरानी दूतावास जाकर संवेदना प्रकट किए बिना सामान्य कामकाज करना अनैतिक समझा। यह हमारी कमज़ोरी नहीं, हमारी ताकत है।</p>
+                <h2>४. एशिया का पारिवारिक चरित्र</h2>
+                <p>एशिया में हम परिवारों में रहते हैं। परिवार में एक सदस्य पर अत्याचार हो, तो बाकी चुप नहीं बैठते। ईरान हमारा पड़ोसी है, उसकी सभ्यता हमारी दादी-नानी की कहानियों में बसती है। आप हिटलर की तरह ‘सभ्यता मिटाने’ की बात करते हैं — लेकिन हम कहते हैं, <strong>हिटलर भी असफल रहा।</strong> संस्कृतियाँ बमों से नहीं मरतीं; वे तो तब मरती हैं जब लोग चुप हो जाते हैं।</p>
+                <div class="challenge-box">
+                    <h3 style="margin-top:0; color:#b4510c;">🧾 हमारी चुनौती</h3>
+                    <p>हम औपचारिक रूप से आपको चुनौती देते हैं:</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>यदि साहस है, तो <strong>अंतरराष्ट्रीय न्यायालय (ICC)</strong> में जाकर सिद्ध करें कि “ईरान की सभ्यता मिटाना” किसी अंतरराष्ट्रीय कानून के अंतर्गत वैध है।</li>
+                        <li>यदि नैतिकता है, तो <strong>ईरानी नागरिकों से सार्वजनिक रूप से माफी</strong> माँगें।</li>
+                        <li>यदि मानवता है, तो <strong>युद्धविराम को तुरंत स्थायी बनाएँ</strong> और ईरान के खिलाफ सभी आर्थिक व सैन्य दबाव समाप्त करें।</li>
+                    </ul>
+                </div>
+                <div class="pledge-quote">
+                    ✊ <strong>हमारी प्रतिज्ञा</strong><br>
+                    “हम आपके बमों से नहीं डरते। हम आपके चरित्र के पतन से दुखी हैं। आप अमेरिका की मान्यता नहीं मिटा सकते — लेकिन आप अपनी मानवता खो चुके हैं। और उस मानवता के बिना, सभ्यता का कोई अर्थ नहीं है।”
+                </div>
+                <p>आप हमें गरीब कहें, कमज़ोर कहें, अविकसित कहें। लेकिन हम कहते हैं: <strong>हम आपसे अधिक मानव हैं।</strong> इतिहास हमेशा उसी पक्ष को लिखता है जिसके पास अधिक हथियार नहीं, बल्कि अधिक करुणा होती है।</p>
+                <div class="country-list">
+                    <strong>🌏 यह पत्र निम्नलिखित एशियाई देशों/क्षेत्रों के नागरिकों की ओर से जारी किया गया है:</strong><br><br>
+                    <strong>दक्षिण एशिया:</strong> भारत, पाकिस्तान, बांग्लादेश, श्रीलंका, नेपाल, भूटान, मालदीव, अफगानिस्तान।<br>
+                    <strong>पूर्व एशिया:</strong> चीन, जापान, दक्षिण कोरिया, उत्तर कोरिया, मंगोलिया, ताइवान (मान्यता के अनुसार)।<br>
+                    <strong>दक्षिण-पूर्व एशिया:</strong> इंडोनेशिया, मलेशिया, फिलीपींस, सिंगापुर, थाईलैंड, वियतनाम, म्यांमार, कंबोडिया, लाओस, ब्रुनेई, तिमोर-लेस्ते।<br>
+                    <strong>पश्चिम एशिया (मध्य पूर्व):</strong> सऊदी अरब, ईरान, इराक, तुर्की, यूएई, कतर, कुवैत, बहरीन, ओमान, यमन, इज़राइल, जॉर्डन, लेबनान, सीरिया, साइप्रस।<br>
+                    <strong>मध्य एशिया:</strong> कजाकिस्तान, उज़्बेकिस्तान, ताजिकिस्तान, किर्गिस्तान, तुर्कमेनिस्तान।<br>
+                    <strong>उत्तर एशिया:</strong> रूस (एशियाई भाग)।<br>
+                    <em>हम एक एशियाई परिवार के रूप में बोलते हैं, जो सरकारों से नहीं, बल्कि अंतःकरण से एकजुट हैं।</em>
+                </div>
+                <div class="signature">
+                    <div class="sign-name">अजय सिंह चौहान (Ajay Singh Chouhan)</div>
+                    <div>प्रेषक / Sender</div>
+                    <div>भोपाल, मध्य प्रदेश, भारत</div>
+                    <div>📧 banjarajanmat@gmail.com</div>
+                    <div style="font-size:0.9rem; margin-top:6px;">एशिया के करोड़ों नागरिकों की ओर से जो साम्राज्य से ऊपर मानवता में विश्वास करते हैं।</div>
+                    <div style="font-weight:500; margin-top:10px;">जय मानवता। जय एशियाई परिवार।</div>
+                </div>
             </div>
         </div>
 
+        <!-- SOCIAL SHARE SECTION (common for both) -->
         <div class="share-section">
-            <div style="font-weight:bold;">📢 इस पत्र को सोशल मीडिया पर साझा करें</div>
+            <div style="font-weight:bold;">📢 इस पत्र को सोशल मीडिया पर साझा करें / Share this letter</div>
             <div class="share-buttons" id="share-buttons"></div>
-            <p style="font-size:0.75rem; margin-top:12px;">या इस लिंक को कॉपी करें: <input type="text" id="pageUrl" readonly style="width:80%; border:1px solid #ccc; border-radius:20px; padding:6px; background:#fff;" value=""></p>
-            <button id="copyBtn" style="background:#dbb45c; border:none; padding:6px 18px; border-radius:30px; margin-top:6px; cursor:pointer;">📋 लिंक कॉपी करें</button>
-        </div>
-
-        <div class="footer-note">
-            🌐 यह पत्र खुले मन से प्रकाशित किया गया है। इसे बिना किसी प्रतिबंध के साझा, अनुवादित और पुनर्प्रकाशित किया जा सकता है।<br>
-            #AsiaToAmerica #SaveIranianCivilization #HumanityOverEmpire #OpenLetterToTrump
-        </div>
-    </div>
-</div>
-
-<!-- Schema.org JSON-LD (संरचित डेटा) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "एक खुला पत्र – अमेरिकी राष्ट्रपति ट्रंप के नाम: ईरान की सभ्यता मिटाने की धमकी पर एशिया का प्रश्न",
-  "description": "एशिया के 40 से अधिक देशों के नागरिकों की ओर से अमेरिकी प्रशासन को खुली चुनौती।",
-  "author": {
-    "@type": "Person",
-    "name": "अजय सिंह चौहान",
-    "email": "banjarajanmat@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Bhopal",
-      "addressRegion": "Madhya Pradesh",
-      "addressCountry": "India"
-    }
-  },
-  "datePublished": "2026-04-09",
-  "publisher": {
-    "@type": "Organization",
-    "name": "एशियाई नागरिक मंच",
-    "url": "https://yourusername.github.io"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://yourusername.github.io/"
-  }
-}
-</script>
-
-<script>
-    // वर्तमान URL सेट करें
-    let currentUrl = window.location.href;
-    document.getElementById('pageUrl').value = currentUrl;
-    document.getElementById('og_url').setAttribute('content', currentUrl);
-    document.getElementById('canonical_url').setAttribute('href', currentUrl);
-    
-    // सोशल शेयर लिंक
-    const shareUrls = {
-        twitter: `https://twitter.com/intent/tweet?text=एक खुला पत्र%3A%20अमेरिका%20से%20एशिया%20के%20नागरिकों%20की%20आवाज़%20-%20ईरान%20की%20सभ्यता%20मिटाने%20की%20धमकी%20अस्वीकार्य%20है।&url=${encodeURIComponent(currentUrl)}&hashtags=AsiaToAmerica,SaveIranianCivilization,HumanityOverEmpire`,
-        facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
-        whatsapp: `https://api.whatsapp.com/send?text=*एक खुला पत्र*%20-%20अमेरिका%20के%20नाम%2C%20एशिया%20के%20नागरिकों%20की%20ओर%20से%20पढ़ें%3A%20${encodeURIComponent(currentUrl)}`,
-        telegram: `https://t.me/share/url?url=${encodeURIComponent(currentUrl)}&text=एक खुला पत्र%3A%20अमेरिकी%20प्रशासन%20को%20एशिया%20की%20नैतिक%20चुनौती।`,
-        linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`
-    };
-    
-    const buttons = [
-        { name: "𝕏 (Twitter/X)", icon: "🐦", key: "twitter" },
-        { name: "Facebook", icon: "📘", key: "facebook" },
-        { name: "WhatsApp", icon: "📱", key: "whatsapp" },
-        { name: "Telegram", icon: "✈️", key: "telegram" },
-        { name: "LinkedIn", icon: "🔗", key: "linkedin" }
-    ];
-    
-    const container = document.getElementById('share-buttons');
-    buttons.forEach(btn => {
-        const a = document.createElement('a');
-        a.href = shareUrls[btn.key];
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        a.className = "share-btn";
-        a.innerHTML = `${btn.icon} ${btn.name}`;
-        container.appendChild(a);
-    });
-    
-    // कॉपी बटन
-    const copyBtn = document.getElementById('copyBtn');
-    copyBtn.addEventListener('click', () => {
-        const urlInput = document.getElementById('pageUrl');
-        urlInput.select();
-        urlInput.setSelectionRange(0, 99999);
-        navigator.clipboard.writeText(currentUrl).then(() => {
-            copyBtn.innerText = '✅ कॉपी हो गया!';
-            setTimeout(() => { copyBtn.innerText = '📋 लिंक कॉपी करें'; }, 2000);
-        }).catch(() => alert('लिंक कॉपी नहीं हुआ, मैन्युअल कॉपी करें।'));
-    });
-</script>
-</body>
-</html>
-
+            <p style="font-size:0.75rem; margin-top:12px;">🔗 पेज लिंक / Page link: <input type="text" id="pageUrl" readonly style="width:70%; border:1px solid #ccc; border-radius:20px; padd
