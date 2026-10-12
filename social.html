@@ -39,12 +39,32 @@
 const SUPABASE_URL='https://zrageqytipetjfpcfkcv.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_sPOiz1rhzKUMOCCfYT5nSw_r3zjXSnV';
 const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
-const posts=[...document.querySelectorAll('.post')];let filter='all';
+let posts=[...document.querySelectorAll('.post')];let filter='all';
 const statusEl=document.querySelector('#status'), authStatus=document.querySelector('#authStatus');
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function update(){const q=document.querySelector('#search').value.toLowerCase().trim();posts.forEach(p=>{const okFilter=filter==='all'||p.dataset.category===filter;const okQuery=!q||(p.dataset.search+' '+p.innerText).toLowerCase().includes(q);p.classList.toggle('hidden',!(okFilter&&okQuery));});}
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.className=x===b?'':'outline');update();}));
 document.querySelector('#search').addEventListener('input',update);
+async function loadApprovedPosts(){
+ const {data,error}=await supabaseClient.from('social_posts').select('id,title,body,category,language,created_at,source_url').in('status',['approved','published']).order('created_at',{ascending:false}).limit(50);
+ if(error){console.warn('Public feed could not load',error.message);return;}
+ const feed=document.querySelector('#feed');
+ feed.querySelectorAll('[data-live-post="true"]').forEach(n=>n.remove());
+ (data||[]).forEach(item=>{
+  const article=document.createElement('article');article.className='card post';article.dataset.livePost='true';article.dataset.category=item.category||'community';article.dataset.search=(item.title+' '+item.body+' '+item.category).toLowerCase();
+  const head=document.createElement('div');head.className='post-head';
+  const avatar=document.createElement('div');avatar.className='avatar';avatar.textContent='GB';
+  const meta=document.createElement('div');const author=document.createElement('strong');author.textContent='GBSBFORYOU समुदाय';const date=document.createElement('div');date.className='muted';date.textContent=new Date(item.created_at).toLocaleDateString('hi-IN');meta.append(author,date);
+  const tag=document.createElement('span');tag.className='tag';tag.style.marginLeft='auto';tag.textContent=item.category==='academy'?'Academy':item.category==='letter'?'खुला पत्र':'समुदाय';head.append(avatar,meta,tag);
+  const title=document.createElement('div');title.className='post-title';title.textContent=item.title;
+  const body=document.createElement('p');body.style.whiteSpace='pre-wrap';body.textContent=item.body;
+  article.append(head,title,body);
+  if(item.source_url){const link=document.createElement('a');link.href=item.source_url;link.rel='noopener noreferrer';link.target='_blank';link.textContent='स्रोत देखें';article.append(link);}
+  feed.append(article);
+ });
+ posts=[...document.querySelectorAll('.post')];update();
+}
+
 function message(el,msg){el.textContent=msg;}
 async function refreshSession(){const {data:{session}}=await supabaseClient.auth.getSession();document.querySelector('#logout').classList.toggle('hidden',!session);document.querySelector('#login').classList.toggle('hidden',!!session);document.querySelector('#signup').classList.toggle('hidden',!!session);if(session)message(authStatus,'लॉगिन है: '+(session.user.email||'खाता'));return session;}
 document.querySelector('#signup').addEventListener('click',async()=>{const email=document.querySelector('#email').value.trim(),password=document.querySelector('#password').value;if(!email||password.length<6){message(authStatus,'सही ईमेल और कम-से-कम 6 अक्षर का पासवर्ड दर्ज करें।');return;}message(authStatus,'पंजीकरण हो रहा है…');const {data,error}=await supabaseClient.auth.signUp({email,password});message(authStatus,error?'त्रुटि: '+error.message:(data.session?'पंजीकरण सफल। आप लॉगिन हैं।':'पंजीकरण अनुरोध सफल। ईमेल पुष्टि लिंक देखें।'));await refreshSession();});
@@ -55,6 +75,7 @@ document.querySelector('#demo').addEventListener('click',()=>{const t=document.q
 document.querySelectorAll('.share').forEach(b=>b.addEventListener('click',async()=>{const url=new URL(b.dataset.url,location.href).href;try{if(navigator.share){await navigator.share({title:b.dataset.title,url});}else if(navigator.clipboard){await navigator.clipboard.writeText(url);alert('लिंक कॉपी हो गया।');}else{prompt('लिंक कॉपी करें',url);}}catch(e){};}));
 supabaseClient.auth.onAuthStateChange(()=>{refreshSession();});
 refreshSession();
+loadApprovedPosts();
 </script>
 </body>
 </html>
